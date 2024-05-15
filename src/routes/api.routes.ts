@@ -7,7 +7,8 @@ const controller = new apiController();
 
 router.get("/", welcome);
 
-router.post("/appointments", controller.setup);
-router.get("/appointments", controller.getAppointments);
+router.get("/tickets", controller.getTickets);
+router.get("/tickets:title", controller.getTicketByTitle);
+router.post("/tickets", controller.getTicketByTimeOrSearch);
 
 export default router;

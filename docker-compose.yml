@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   db:
-    container_name: vim-db
+    container_name: wix-db
     image: mysql:8.0
     cap_add:
       - SYS_NICE
@@ -14,9 +14,9 @@ services:
     volumes:
       - ./init-scripts:/docker-entrypoint-initdb.d
     networks:
-      - vim-net
+      - wix-net
   api:
-    container_name: vim-api
+    container_name: wix-api
     build: .
     ports:
       - '9001:9001'
@@ -30,7 +30,7 @@ services:
     depends_on:
       - db
     networks:
-      - vim-net
+      - wix-net
     volumes:
       - ./:/src
 volumes:
@@ -39,5 +39,5 @@ volumes:
 
 
 networks:
-  vim-net:
+  wix-net:
     driver: bridge

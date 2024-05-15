@@ -1,0 +1,7 @@
+# Generated directories:
+.nyc_output/
+coverage/
+build/
+node_modules/
+test/enc-test.ts
+dist
