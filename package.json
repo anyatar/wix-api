@@ -4,8 +4,7 @@
   "description": "Rest API using Node.js, TypeScript, Express, Mysql for Wix task",
   "main": "server.ts",
   "scripts": {
-    "build": "tsc && copy \"./src/db/data.json\" \"./build/src/db/data.json\"",
-    "cp-data": "copy \"./src/db/data.json\" \"./build/src/db/data.json\"",
+    "build": "tsc && copyfiles src\\db\\data.json build",
     "dev": "ts-node server.ts",
     "start": "tsc && node ./build/server.js",
     "test": "mocha -r ts-node/register -- 'test/*.unit.test.js' --exit"
@@ -15,6 +14,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "copyfiles": "^2.4.1",
     "node-fetch": "^2.6.1",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
