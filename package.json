@@ -1,0 +1,41 @@
+{
+  "name": "lets-run-api",
+  "version": "1.0.0",
+  "description": "Rest API using Node.js, TypeScript, Express, Mysql for Vim task",
+  "main": "server.ts",
+  "scripts": {
+    "build": "tsc && copy \"./src/db/providers.json\" \"./build/src/db/providers.json\"",
+    "dev": "ts-node server.ts",
+    "start": "tsc && node ./build/server.js",
+    "test": "mocha -r ts-node/register -- 'test/*.unit.test.js' --exit"
+  },
+  "author": "https://github.com/anyatar",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.3.13",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.3.3",
+    "chai": "^5.1.0",
+    "chai-http": "^4.4.0",
+    "jest": "^29.7.0",
+    "mocha": "^10.3.0",
+    "node-fetch": "^2.6.1",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.4.3",
+    "sqlite3": "^5.1.7"
+  }
+}
