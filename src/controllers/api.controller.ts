@@ -6,7 +6,7 @@ export default class apiController {
   getTicketByTimeOrSearch(req: Request, res: Response) {
 
     try {
-      const { from, to, searchTerm } = req.query;
+      let { from, to, searchTerm } = req.query;
   
       if (!from && !to && !searchTerm ) {
         return res.status(400).json({ error: 'Bad request' });
@@ -16,8 +16,8 @@ export default class apiController {
       
       if (searchTerm) {
         tickets = ticketService.getTicketsBySearchTerm(searchTerm.toString());
-      } else if (from && to) {
-        tickets = ticketService.getTicketsByTime(+from, +to);
+      } else if ((from ?? false) || (to ?? false)) {
+        tickets = ticketService.getTicketsByTime((from ? +from : 0), (to ? +to : 0));
       }
 
       return res.status(200).json(tickets);
@@ -40,7 +40,10 @@ export default class apiController {
   
   getTicketByTitle(req: Request, res: Response) {
     try {
+      console.log(req.params);
       const title = req.params.title;
+
+      console.log('here2');
 
       if (!title) {
         return res.status(400).json({ error: 'Bad request' });
